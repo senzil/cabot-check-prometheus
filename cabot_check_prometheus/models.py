@@ -16,6 +16,11 @@ class PrometheusStatusCheck(StatusCheck):
     port = models.PositiveIntegerField(
         help_text='Port to check.',
     )
+    query = models.TextField(
+        help_text='Prometheus expression query string.',
+    )
+    timeout = models.PositiveIntegerField()
+    frequency = models.PositiveIntegerField()
 
     def _run(self):
         result = StatusCheckResult(status_check=self)
