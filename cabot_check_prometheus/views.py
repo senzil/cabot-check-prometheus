@@ -17,18 +17,20 @@ class PrometheusStatusCheckForm(StatusCheckForm):
         fields = (
             'name',
             'host',
-            'port',
             'query',
             'timeout',
-            'frequency'
+            'frequency',
         )
 
         widgets = dict(**base_widgets)
         widgets.update({
             'host': forms.TextInput(attrs={
                 'style': 'width: 100%',
-                'placeholder': 'service.arachnys.com',
-            })
+                'placeholder': 'http://prometheus.widen-stage.com/api/v1/query/',
+            }),
+            'query': forms.TextInput(attrs={
+                'style': 'width: 100%; height: 20em;',
+            }),
         })
 
 
