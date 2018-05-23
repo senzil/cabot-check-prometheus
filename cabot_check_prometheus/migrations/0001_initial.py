@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import django.db.models.deletion
@@ -17,8 +18,8 @@ class Migration(migrations.Migration):
             name='PrometheusStatusCheck',
             fields=[
                 ('statuscheck_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='cabotapp.StatusCheck')),
-                ('host', models.TextField(null=False, blank=False)),
-                ('query', models.TextField(help_text=b'Prometheus query to execute.', null=True)),
+                ('host', models.TextField(help_text=b'Host to check.', null=False, blank=False)),
+                ('query', models.TextField(help_text=b'Query to execute.', null=False, blank=False)),
             ],
             options={
                 'abstract': False,
