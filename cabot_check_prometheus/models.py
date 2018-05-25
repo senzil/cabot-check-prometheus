@@ -68,7 +68,7 @@ class PrometheusStatusCheck(StatusCheck):
             # Parse url input
             url = urlparse(self.host)
             # Format url
-            url = url._replace(path='/api/v1/query', params='', query='', fragment='')
+            url = url._replace(scheme='http', path='/api/v1/query', params='', query='', fragment='')
 
 
             payload = {
