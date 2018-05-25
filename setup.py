@@ -7,6 +7,6 @@ setup(name='cabot_check_prometheus',
       description='A Prometheus plugin for Cabot',
       author='Widen Enterprises',
       author_email='pgarland@widen.com',
-      url='http://widen.com',
+      url='https://github.com/widen/cabot-check-prometheus',
       packages=find_packages(),
     )
