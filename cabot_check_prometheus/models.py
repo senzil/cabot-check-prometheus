@@ -1,6 +1,3 @@
-import datetime
-import socket
-import ssl
 import requests
 from urlparse import urlparse
 

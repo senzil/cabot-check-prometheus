@@ -29,7 +29,7 @@ class PrometheusStatusCheckForm(StatusCheckForm):
         widgets.update({
             'host': forms.TextInput(attrs={
                 'style': 'width: 100%',
-                'placeholder': 'prometheus.arachnys.com/api/v1/query',
+                'placeholder': 'prometheus.arachnys.com',
             })
         })
 
