@@ -2,6 +2,7 @@ import datetime
 import socket
 import ssl
 import requests
+from urlparse import urlparse
 
 from django.db import models
 
@@ -64,10 +65,16 @@ class PrometheusStatusCheck(StatusCheck):
         result = StatusCheckResult(status_check=self)
 
         try:
+            # Parse url input
+            url = urlparse(self.host)
+            # Format url
+            url = url._replace(path='/api/v1/query', params='', query='', fragment='')
+
+
             payload = {
-                'query': 'rate(apiserver_request_count{code=~"^(?:5..)$"}[5m]) / rate(apiserver_request_count[5m]) * 100 > 2'
+                'query': self.query
             }
-            r = requests.get("http://prometheus.widen-prod.com/api/v1/query", params=payload)
+            r = requests.get(url.geturl(), params=payload)
             data = r.json()['data']
             type = data['resultType']
             if type == 'matrix':
