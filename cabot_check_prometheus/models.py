@@ -3,7 +3,7 @@ from urlparse import urlparse
 
 from django.db import models
 
-from cabot.cabotapp.models import StatusCheck, StatusCheckResult
+from cabot3.cabotapp.models import StatusCheck, StatusCheckResult
 
 def process_matrix(data):
     metrics = []
